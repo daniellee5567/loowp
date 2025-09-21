@@ -1,0 +1,322 @@
+/* 更新日志选项卡样式 */
+.changelog-container {
+    padding: 0;
+}
+
+.changelog-item {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 最新版本特殊样式 */
+.changelog-item:first-child {
+    border-color: #007bff;
+    box-shadow: 0 4px 12px rgba(0,123,255,0.15);
+}
+
+.changelog-item:first-child::before {
+    content: '最新';
+    position: absolute;
+    top: -8px;
+    right: 15px;
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    z-index: 10;
+    box-shadow: 0 2px 4px rgba(40,167,69,0.3);
+}
+
+.changelog-item:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
+
+.changelog-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-bottom: 1px solid #e9ecef;
+    border-radius: 8px 8px 0 0;
+}
+
+.changelog-version {
+    flex: 1;
+}
+
+.version-badge {
+    display: inline-block;
+    padding: 6px 12px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: #fff;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,123,255,0.3);
+}
+
+.changelog-date {
+    color: #6c757d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.changelog-content {
+    padding: 20px;
+    line-height: 1.6;
+    color: #495057;
+}
+
+.changelog-content p {
+    margin-bottom: 10px;
+}
+
+.changelog-content p:last-child {
+    margin-bottom: 0;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .changelog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .changelog-version {
+        width: 100%;
+    }
+    
+    .changelog-date {
+        align-self: flex-end;
+    }
+    
+    .changelog-content {
+        padding: 15px;
+    }
+}
+
+/* 暗色模式支持 */
+[data-bs-theme="dark"] .changelog-item {
+    background: #2d3748;
+    border-color: #4a5568;
+}
+
+[data-bs-theme="dark"] .changelog-item:first-child {
+    border-color: #4299e1;
+    box-shadow: 0 4px 12px rgba(66,153,225,0.15);
+}
+
+[data-bs-theme="dark"] .changelog-header {
+    background: linear-gradient(135deg, #4a5568 0%, #2d3748 100%);
+    border-color: #4a5568;
+}
+
+[data-bs-theme="dark"] .changelog-content {
+    color: #e2e8f0;
+}
+
+[data-bs-theme="dark"] .changelog-date {
+    color: #a0aec0;
+}
+
+/* 动画效果 */
+.changelog-item {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 版本徽章特殊样式 */
+.version-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.version-badge::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.changelog-item:hover .version-badge::before {
+    left: 100%;
+}
+
+/* 免费下载按钮样式 */
+.free-download-section {
+    margin: 30px 0;
+    padding: 25px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.free-download-title {
+    color: #495057;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.free-download-button-wrapper {
+    margin-top: 15px;
+}
+
+.free-download-btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    border: none;
+    border-radius: 8px;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(0,123,255,0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.free-download-btn:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,123,255,0.4);
+    color: #fff;
+}
+
+.free-download-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0,123,255,0.3);
+}
+
+.free-download-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.free-download-btn:hover::before {
+    left: 100%;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .free-download-section {
+        margin: 20px 0;
+        padding: 20px 15px;
+    }
+    
+    .free-download-title {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+    }
+    
+    .free-download-btn {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
+
+/* 暗色模式支持 */
+[data-bs-theme="dark"] .free-download-section {
+    background: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    border-color: #4a5568;
+}
+
+[data-bs-theme="dark"] .free-download-title {
+    color: #e2e8f0;
+}
+
+/* 动画效果 */
+.free-download-section {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 头部免费下载按钮样式 */
+.buy-btns .btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border: none;
+    box-shadow: 0 2px 8px rgba(40,167,69,0.3);
+    transition: all 0.3s ease;
+}
+
+.buy-btns .btn-success:hover {
+    background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40,167,69,0.4);
+    color: #fff;
+}
+
+.buy-btns .btn-success:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(40,167,69,0.3);
+}
+
+/* 侧边栏免费下载按钮样式 */
+.sidebar .buy-btns .btn-success {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border: none;
+    box-shadow: 0 2px 8px rgba(40,167,69,0.3);
+    transition: all 0.3s ease;
+}
+
+.sidebar .buy-btns .btn-success:hover {
+    background: linear-gradient(135deg, #20c997 0%, #17a2b8 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(40,167,69,0.4);
+    color: #fff;
+}
+
+/* 暗色模式支持 */
+[data-bs-theme="dark"] .buy-btns .btn-success {
+    background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+}
+
+[data-bs-theme="dark"] .buy-btns .btn-success:hover {
+    background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+}
