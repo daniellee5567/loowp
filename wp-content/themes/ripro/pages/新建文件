@@ -1,0 +1,11 @@
+    <script> 
+        function test() { 
+            $("#user-profile").css("display","none"); } 
+    </script> 
+    <?php 
+        $emall = $current_user->user_nicename.'_mail@no.com'; 
+        $emall1 = $current_user->user_email; 
+        if ($emall == $emall1) { 
+            echo "<script type='text/javascript'>test();</script>"; get_template_part( 'pages/user/buchong' ); 
+        } 
+    ?>   
